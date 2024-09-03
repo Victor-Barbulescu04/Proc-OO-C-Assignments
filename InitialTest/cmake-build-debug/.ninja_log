@@ -1,0 +1,13 @@
+# ninja log v6
+4	506	7470861041235936	CMakeFiles/InitialTest.dir/main.cpp.obj	e09cab4607c865be
+508	629	7470861046272384	InitialTest.exe	7e841b4c4209fbdb
+7	357	7470877806533479	CMakeFiles/InitialTest.dir/main.cpp.obj	e09cab4607c865be
+358	444	7470877810039608	InitialTest.exe	7e841b4c4209fbdb
+20	791	7470903384939186	CMakeFiles/InitialTest.dir/main.cpp.obj	e09cab4607c865be
+792	902	7470903392650337	InitialTest.exe	7e841b4c4209fbdb
+7	717	7470903775016384	CMakeFiles/InitialTest.dir/main.cpp.obj	e09cab4607c865be
+718	870	7470903782126612	InitialTest.exe	7e841b4c4209fbdb
+8	684	7470903923652000	CMakeFiles/InitialTest.dir/main.cpp.obj	e09cab4607c865be
+695	810	7470903930520179	InitialTest.exe	7e841b4c4209fbdb
+7	662	7470903993960586	CMakeFiles/InitialTest.dir/main.cpp.obj	e09cab4607c865be
+662	1041	7470904000515363	InitialTest.exe	7e841b4c4209fbdb

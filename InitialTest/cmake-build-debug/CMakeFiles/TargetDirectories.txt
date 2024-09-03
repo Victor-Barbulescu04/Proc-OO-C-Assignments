@@ -1,0 +1,3 @@
+C:/Users/barbulescuv/CLion/Github/Proc & OO C++/Proc & OO C++ Assignments/InitialTest/cmake-build-debug/CMakeFiles/InitialTest.dir
+C:/Users/barbulescuv/CLion/Github/Proc & OO C++/Proc & OO C++ Assignments/InitialTest/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/barbulescuv/CLion/Github/Proc & OO C++/Proc & OO C++ Assignments/InitialTest/cmake-build-debug/CMakeFiles/rebuild_cache.dir

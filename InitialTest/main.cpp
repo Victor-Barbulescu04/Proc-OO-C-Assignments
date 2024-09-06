@@ -1,15 +1,12 @@
 #include <iostream>
-#include <math.h>
-#include <valarray>
 using namespace std;
 
 int main() {
-    int side;
+    int side = 0;
 
-    cout << "Enter a number:";
+    cout << "Enter an integer: ";
     cin >> side;
-    cout << "The size of your cube is: " << pow(side, 3);
-    cout << endl;
+    cout << "The cube of " << side << " is " << side * side * side << endl;
 
     return 0;
 }

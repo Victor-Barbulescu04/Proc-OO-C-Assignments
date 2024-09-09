@@ -6,11 +6,14 @@ int main() {
     int amount = 0;
     int totalAmount = 0;
 
-    // Read first user input
-    cin >> time >> item >> amount;
+    // Read and process inputs
+    while (cin >> time) {
+        // If the user enters exit, break out of the loop
+        if (time == "exit") break;
 
-    // Process and continue reading inputs
-    while(cin.good()) {
+        // Continue to read item and amount only if time is not "exit"
+        cin >> item >> amount;
+
         // Add the amount to the correct running total
         if (item == "urine" || item == "bloodloss" || item == "diarrhea") {
             totalAmount -= amount;
@@ -21,8 +24,6 @@ int main() {
                 cout << "after consuming " << item << " at "<< time << ", intake exceeds output by " << totalAmount << " ml" << endl;
             }
         }
-
-        cin >> time >> item >> amount;
     }
 
     cout << "the final fluid differential is " << totalAmount << " ml" << endl;

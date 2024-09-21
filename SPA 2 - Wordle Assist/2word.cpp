@@ -37,26 +37,16 @@ int main() {
 string* read_word_list() {
     static string wordsArray[MAX_WORDS];
     int size = 0; // Initialize the size
-
     while (true) {
         string input;
         cin >> input; // Read a word at a time
 
-        if (input == "END") {
-            break; // Stop reading when "END" is entered
-        }
+        if (input == "END") {break;} // Stop reading when "END" is entered
+        if (size >= MAX_WORDS) {break;}
 
-        if (size >= MAX_WORDS) {
-            break;
-        }
-
-        // Assign input to temporary words array
         wordsArray[size] = input;
-
-        // Increment the size
         size++;
     }
-
     return wordsArray;
 }
 
@@ -101,9 +91,6 @@ string* possible_answers(string* dictionary, string* guesses) {
         string letter_matches = guesses[2 * i + 1]; // Odd numbered indexes
         for (int j = 0; j < MAX_WORDS; j++) {
             if (!can_match(possible_matches[j], guess, letter_matches)) {
-                // If the current guess cannot match the word at the given index, replace it with an empty string.
-                // This effectively removes it from the array and ensure that in future iterations, the word
-                // will not be considered. Eventually, only a few words will be left that can be considered.
                 possible_matches[j] = "";
             }
         }

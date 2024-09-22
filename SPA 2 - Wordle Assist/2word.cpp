@@ -16,6 +16,7 @@ string* possible_answers(string* dictionary, string* guesses);
 int count_possible_matches(string* possible_matches);
 string build_output(string* guessesArray);
 
+
 int main() {
     run_checks();
     string* wordsArrayPtr = read_word_list();
@@ -71,8 +72,8 @@ bool can_match(string possible_answer, string guess, string letter_matches) {
             case '.': // If character does not exactly match position, return false
                 if (possible_answer[i] != guess[i]) {return false;}
                 break;
-            case '?': // If possible answer does not contain character, return false
-                if (possible_answer.find(guess[i]) == string::npos) {return false;}
+            case '?': // If possible answer does not contain character, or the character is in the same position as ?, return false
+                if (possible_answer.find(guess[i]) == string::npos || possible_answer[i] == guess[i]) {return false;}
                 break;
             case '-': // If possible answer contains character, return false
                 if (possible_answer.find(guess[i]) != string::npos) {return false;}
@@ -84,15 +85,22 @@ bool can_match(string possible_answer, string guess, string letter_matches) {
 }
 
 string* possible_answers(string* dictionary, string* guesses) {
-    string *possible_matches = dictionary;
+    static string possible_matches[MAX_WORDS];  // Separate array to store matches
+    int match_index = 0;
 
-    for (int i = 0; i < 10; i++) {
-        string guess = guesses[2 * i]; // Even numbered indexes
-        string letter_matches = guesses[2 * i + 1]; // Odd numbered indexes
-        for (int j = 0; j < MAX_WORDS; j++) {
-            if (!can_match(possible_matches[j], guess, letter_matches)) {
-                possible_matches[j] = "";
+    for (int i = 0; i < MAX_WORDS; i++) {
+        bool match = true;
+        for (int j = 0; j < 10; j++) {
+            string guess = guesses[2 * j]; // Even numbered indexes
+            string letter_matches = guesses[2 * j + 1]; // Odd numbered indexes
+            if (!can_match(dictionary[i], guess, letter_matches)) {
+                match = false;
+                break;
             }
+        }
+        if (match) {
+            possible_matches[match_index] = dictionary[i];
+            match_index++;
         }
     }
 

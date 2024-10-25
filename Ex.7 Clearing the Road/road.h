@@ -47,7 +47,6 @@ private:
     Vehicle** spots;      // array of spaces, allocated in constructor
 };
 
-// TODO: add car, taxi, eighteenwheeler classes
 class Car : public Vehicle {
 public:
     Car(Road *road_on) : Vehicle(road_on) { }

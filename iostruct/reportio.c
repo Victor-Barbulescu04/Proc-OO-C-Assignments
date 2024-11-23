@@ -14,6 +14,16 @@ void flag_large_differentials(const Event events[], int event_count) {
     //       "after consuming coffee at 8:20, intake exceeds output by 1050 ml"
     //       You'll use printf with %s for strings, %d for ints
 
+    if (events[i].is_output) {
+      total -= events[i].milliliters;
+    } else {
+      total += events[i].milliliters;
+    }
+
+    if (total >= 1000) {
+      printf("After consuming %s at %s, intake exceeds output by %d ml", events[i].name, events[i].time, total);
+    }
+
   }
   printf("the final fluid differential is %d ml\n", total);
 }

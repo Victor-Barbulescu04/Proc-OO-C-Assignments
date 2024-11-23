@@ -24,7 +24,21 @@ void read_events(Event all_events[], int max_events, int *event_count) {
     //       event is an output since that's done elsewhere. Use strncpy
     //       for the strings.
 
-    // TODO: add code to update event_count to the new value
+    Event e;
+    strncpy(e.time, time, MAX_TIME_LENGTH);
+    e.time[MAX_TIME_LENGTH] = '\0';  // Ensure null termination
+
+    strncpy(e.name, item, MAX_EVENT_NAME);
+    e.name[MAX_EVENT_NAME] = '\0';  // Ensure null termination
+
+    e.milliliters = milliliters;
+
+    if (*event_count < max_events) {
+      all_events[*event_count] = e;
+      (*event_count)++;  // Increment the event count
+    } else {
+      fprintf(stderr, "Error: Cannot add more events, array is full.\n");
+    }
 
     // note: is_output is set elsewhere
     // read for next time through loop
@@ -38,6 +52,12 @@ void determine_if_event_is_output(Event *an_event) {
   //       diarrhea indicate output. Use strcmp to do the comparison,
   //       remembering it returns 0 if the strings are the same.
 
+  if (strcmp(an_event->name, "urine") == 0 ||
+    strcmp(an_event->name, "bloodloss") == 0 ||
+    strcmp(an_event->name, "diarrhea") == 0) {
+    an_event->is_output = 1;
+    }
+
 }
 
 void classify_events(Event events[], int event_count) {
@@ -45,6 +65,6 @@ void classify_events(Event events[], int event_count) {
     // TODO: call determine_if_event_is_output to set the intake/output flag
     // Note: if you're having problems, you might find it useful to print
     //       the data in events[] here (but comment it out for final submission)
-    
+    determine_if_event_is_output(&events[i]);
   }
 }

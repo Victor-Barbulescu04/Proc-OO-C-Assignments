@@ -11,9 +11,14 @@
 
 typedef struct {
   char time[MAX_TIME_LENGTH + 1]; // add 1 for the null terminator
+
   // TODO: add fields for the milliliters, bool is_output, and the
   //       event name. Each should have the appropriate type. Use
   //       MAX_EVENT_NAME + 1 for the size of the event name string.
+
+  int milliliters;
+  bool is_output;
+  char name[MAX_EVENT_NAME + 1];
 
 } Event;
 

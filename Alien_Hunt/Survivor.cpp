@@ -100,7 +100,3 @@ void Survivor::hint() {
 char Survivor::character() {
     return '!';
 }
-
-
-
-

@@ -1,6 +1,6 @@
-//
-// Created by vicb2 on 11/15/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 /* GameController class
  * A class that controls the back-end of the game

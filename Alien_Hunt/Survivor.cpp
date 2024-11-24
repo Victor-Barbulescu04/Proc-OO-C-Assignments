@@ -1,6 +1,6 @@
-//
-// Created by vicb2 on 11/14/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 #include <random>
 #include <iostream>
@@ -34,8 +34,11 @@ void Survivor::setXYTranslate() {
 // Entity functions
 
 void Survivor::interact(Person *p) {
-    std::cout << "You encounter a deranged survivor! He scares you off in a random direction!" << std::endl;
+    std::cout << "You encounter a deranged survivor! He scares you off to a random part of the ship!" << std::endl;
     setXYTranslate();
+
+    Room* currentRoom = p->getRoom();
+    currentRoom-> setPerson(nullptr);
 
     // X motion
     int xIterator = 0;

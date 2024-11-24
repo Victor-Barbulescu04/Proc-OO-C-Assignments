@@ -1,6 +1,6 @@
-//
-// Created by vicb2 on 11/14/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 #include "Room.h"
 
@@ -21,7 +21,6 @@ Room::Room(Entity *startingObject, Person *startingPlayer) {
 // Room destructor definition
 Room::~Room() {
     delete object;
-    delete player;
     delete up;
     delete down;
     delete left;

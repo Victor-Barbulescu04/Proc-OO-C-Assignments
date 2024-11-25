@@ -38,4 +38,19 @@ public:
     virtual char character() = 0;
 };
 
+/**
+ * Null Entity Class represents a room without an entity in it.
+ * Employs the Null Object Pattern to reduce null checks and simplify
+ * readability in logic pertaining the Entity class.
+ */
+class NullEntity final : public Entity {
+public:
+    NullEntity();
+    ~NullEntity() override ;
+
+    void interact(Person *p) override;
+    void hint() override;
+    char character() override;
+};
+
 #endif //ENTITY_H

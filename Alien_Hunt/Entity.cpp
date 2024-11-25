@@ -6,3 +6,16 @@
 // Destructor definition
 Entity::~Entity() = default;
 
+// -------------------------------------------------------- //
+// Null Entity Function Definitions
+
+NullEntity::NullEntity() = default;
+NullEntity::~NullEntity() = default;
+
+void NullEntity::interact(Person *p) {}
+void NullEntity::hint() {}
+char NullEntity::character() {return '.';}
+
+
+
+

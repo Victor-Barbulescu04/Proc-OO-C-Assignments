@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <ostream>
+#include <utility>
 
 #include "Person.h"
 #include "Weapon.h"
@@ -17,7 +18,7 @@
 // Constructor/destructor
 Treasure::Treasure(int changeValueBy, std::string name) {
     this->changeValueBy = changeValueBy;
-    this->name = name;
+    this->name = std::move(name);
 }
 Treasure::~Treasure() = default;
 

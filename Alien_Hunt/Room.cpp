@@ -89,7 +89,7 @@ void Room::setRight(Room *room) {
 
 // Trigger interaction between player and object
 void Room::interact() const {
-    if (object != nullptr && player != nullptr) {
+    if (player != nullptr) {
         object->interact(player);
     }
 }
@@ -102,22 +102,9 @@ char Room::getContents() const {
     char output;
     if (player != nullptr) {
         output = player->character();
-    } else if (object != nullptr) {
-        output = object->character();
     } else {
-        output = '.';
+        output = object->character();
     }
 
     return output;
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -49,6 +49,8 @@ Your mission is to survive and eliminate the Alien before it gets to you. But be
 - **Game Controller Class**: The core logic that enables objects to interact with one another is all stored in the GameController class. This class implements just one public-facing method: start. This method takes in a map layout and handles the rest of the games interactions in the background. This approach ensures that the main program remains clean and easy to build upon. It also allows for easy custom-map creation on the users end.
 - **Room Traversal Logic**: Due to the requirements of the project, rooms are traversed via accessing internal pointers to adjacent rooms. The GameController class has a backing 2D Vector that's used for map construction and destruction, but is not used for traversal or interaction logic.
 
+---
+
 ## **Setup and Installation**  
 
 ### **Prerequisites**  

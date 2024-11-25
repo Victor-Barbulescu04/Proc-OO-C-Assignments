@@ -85,9 +85,7 @@ void Knife::interact(Person *p) {
     }
 }
 
-void Knife::hint() {
-    std::cout << "You see the glint of a blade through a crack in the wall..." << std::endl;
-}
+void Knife::hint() {}
 
 bool Knife::fire(Room *r, char direction) {
     return checkIfHit(r);
@@ -116,9 +114,7 @@ void Gun::interact(Person *p) {
     }
 }
 
-void Gun::hint() {
-    std::cout << "You see the smoking barrel of a gun through the door..." << std::endl;
-}
+void Gun::hint() {}
 
 bool Gun::fire(Room *r, char direction) {
     std::cout << "You pull the trigger of your gun!" << std::endl;
@@ -165,9 +161,7 @@ void Flamethrower::interact(Person *p) {
     }
 }
 
-void Flamethrower::hint() {
-    std::cout << "You see the flaming barrel of a flamethrower through the door..." << std::endl;
-}
+void Flamethrower::hint() {}
 
 bool Flamethrower::fire(Room *r, char direction) {
     std::cout << "You pull the trigger of your flamethrower!" << std::endl;

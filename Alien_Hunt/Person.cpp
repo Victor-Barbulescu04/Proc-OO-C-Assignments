@@ -30,6 +30,9 @@ int Person::getHealth() const {
 
 void Person::changeHealth(int amount) {
     health += amount;
+    if (health < 0) {
+        health = 0;
+    }
 }
 
 // -------------------------------------------------------- //

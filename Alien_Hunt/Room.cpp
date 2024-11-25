@@ -4,9 +4,6 @@
 
 #include "Room.h"
 
-#include <iostream>
-#include <ostream>
-
 #include "Entity.h"
 #include "Person.h"
 

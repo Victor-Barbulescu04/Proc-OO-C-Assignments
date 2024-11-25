@@ -39,9 +39,7 @@ void Person::changeHealth(int amount) {
 // Weapon functions
 
 void Person::setWeapon(Weapon *w) {
-    if (weapon) {
-        delete weapon;
-    }
+    delete weapon;
     weapon = w;
 }
 

@@ -31,9 +31,7 @@ public:
     void setName(const std::string& name);
 
     char character() override;
-
     virtual bool fire(Room *r, char direction) = 0;
-    virtual Weapon* clone() const = 0;  // Pure virtual method for cloning
 };
 
 class Knife final : public Weapon {
@@ -45,7 +43,6 @@ public:
     void hint() override;
 
     bool fire(Room *r, char direction) override;
-    [[nodiscard]] Weapon* clone() const override;  // Override clone
 };
 
 class Gun final : public Weapon {
@@ -57,7 +54,6 @@ public:
     void hint() override;
 
     bool fire(Room *r, char direction) override;
-    [[nodiscard]] Weapon* clone() const override;  // Override clone
 };
 
 class Flamethrower final : public Weapon {
@@ -69,7 +65,6 @@ public:
     void hint() override;
 
     bool fire(Room *r, char direction) override;
-    [[nodiscard]] Weapon* clone() const override;  // Override clone
 };
 
 #endif // WEAPON_H

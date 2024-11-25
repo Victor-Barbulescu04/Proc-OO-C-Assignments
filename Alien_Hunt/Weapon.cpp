@@ -66,10 +66,6 @@ Room *Weapon::getRoomInDirection(Room *r, char direction) {
 
 Knife::~Knife() = default;
 
-Weapon* Knife::clone() const {
-    return new Knife(this->ammo, this->name, this->range);
-}
-
 void Knife::interact(Person *p) {
     char grab;
     std::cout << "You found a knife! Grab? y/n" << std::endl;
@@ -77,9 +73,7 @@ void Knife::interact(Person *p) {
 
     if (grab == 'y') {
         std::cout << "You grabbed the knife on the ground!" << std::endl;
-        Weapon* newWeapon = this->clone();
-        delete p->getWeapon();
-        p->setWeapon(newWeapon);
+        p->setWeapon(this);
     } else {
         std::cout << "You ignored the knife on the ground!" << std::endl;
     }
@@ -96,10 +90,6 @@ bool Knife::fire(Room *r, char direction) {
 
 Gun::~Gun() = default;
 
-Weapon* Gun::clone() const {
-    return new Gun(this->ammo, this->name, this->range);
-}
-
 void Gun::interact(Person *p) {
     char grab;
     std::cout << "You found a gun! Grab? y/n" << std::endl;
@@ -107,8 +97,7 @@ void Gun::interact(Person *p) {
 
     if (grab == 'y') {
         std::cout << "You grabbed the gun on the ground!" << std::endl;
-        Weapon* clonedWeapon = this->clone();
-        p->replaceWeapon(clonedWeapon);
+        p->setWeapon(this);
     } else {
         std::cout << "You ignored the gun on the ground!" << std::endl;
     }
@@ -142,10 +131,6 @@ bool Gun::fire(Room *r, char direction) {
 
 Flamethrower::~Flamethrower() = default;
 
-Weapon* Flamethrower::clone() const {
-    return new Flamethrower(this->ammo, this->name, this->range);
-}
-
 void Flamethrower::interact(Person *p) {
     char grab;
     std::cout << "You found a flamethrower! Grab? y/n" << std::endl;
@@ -153,9 +138,7 @@ void Flamethrower::interact(Person *p) {
 
     if (grab == 'y') {
         std::cout << "You grabbed the flamethrower on the ground!" << std::endl;
-        Weapon* newWeapon = this->clone();
-        delete p->getWeapon();
-        p->setWeapon(newWeapon);
+        p->setWeapon(this);
     } else {
         std::cout << "You ignored the flamethrower on the ground!" << std::endl;
     }

@@ -1,6 +1,6 @@
-//
-// Created by vicb2 on 11/14/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 /* Person Class
  * Responsible for managing a persons inventory, health, actions
@@ -27,12 +27,15 @@ public:
     void changeHealth(int amount);
 
     [[nodiscard]] Weapon* getWeapon() const;
+
+    void replaceWeapon(Weapon *weapon);
+
     void setWeapon(Weapon* w);
 
     [[nodiscard]] Room* getRoom() const;
     void setRoom(Room* r);
 
-    [[nodiscard]] char character() const;
+    [[nodiscard]] static char character();
 
     [[nodiscard]] bool attack() const;
 };

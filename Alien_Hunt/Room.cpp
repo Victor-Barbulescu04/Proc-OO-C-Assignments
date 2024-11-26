@@ -1,11 +1,8 @@
-//
-// Created by vicb2 on 11/14/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 #include "Room.h"
-
-#include <iostream>
-#include <ostream>
 
 #include "Entity.h"
 #include "Person.h"
@@ -22,17 +19,9 @@ Room::Room(Entity *startingObject, Person *startingPlayer) {
 Room::~Room() {
     delete object;
     delete player;
-    delete up;
-    delete down;
-    delete left;
-    delete right;
 
     object = nullptr;
     player = nullptr;
-    up = nullptr;
-    down = nullptr;
-    left = nullptr;
-    right = nullptr;
 }
 
 // -------------------------------------------------------- //
@@ -90,7 +79,7 @@ void Room::setRight(Room *room) {
 
 // Trigger interaction between player and object
 void Room::interact() const {
-    if (object != nullptr && player != nullptr) {
+    if (player != nullptr) {
         object->interact(player);
     }
 }
@@ -103,22 +92,9 @@ char Room::getContents() const {
     char output;
     if (player != nullptr) {
         output = player->character();
-    } else if (object != nullptr) {
-        output = object->character();
     } else {
-        output = '.';
+        output = object->character();
     }
 
     return output;
 }
-
-
-
-
-
-
-
-
-
-
-

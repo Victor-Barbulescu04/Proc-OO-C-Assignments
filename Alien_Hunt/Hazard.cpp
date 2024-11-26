@@ -1,6 +1,6 @@
-//
-// Created by vicb2 on 11/14/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 #include "Hazard.h"
 
@@ -37,8 +37,9 @@ ExposedWires::~ExposedWires() = default;
 // Entity functions
 
 void ExposedWires::interact(Person *p) {
-    std::cout << "You were shocked by exposed wires!" << std::endl;
+    std::cout << "You were shocked by exposed wires and took " << damage << " damage!" << std::endl;
     p->changeHealth(-damage);
+    std::cout << "Health: " << p->getHealth() << std::endl;
 }
 
 void ExposedWires::hint() {
@@ -57,8 +58,9 @@ LowOxygenRoom::~LowOxygenRoom() = default;
 // Entity functions
 
 void LowOxygenRoom::interact(Person *p) {
-    std::cout << "You nearly choked from the low oxygen!" << std::endl;
+    std::cout << "You nearly choked from the low oxygen and took " << damage << " damage!" << std::endl;
     p->changeHealth(-damage);
+    std::cout << "Health: " << p->getHealth() << std::endl;
 }
 
 void LowOxygenRoom::hint() {

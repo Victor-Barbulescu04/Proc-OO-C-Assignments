@@ -93,11 +93,13 @@ vector<vector<Room *>> GameController::buildMap(const vector<vector<char> > &map
 }
 
 Room *GameController::buildRoom(char entity) {
-    Entity* startingEntity = nullptr;
+    Entity* startingEntity = new NullEntity();
 
     // Build entities in the room (if applicable)
     switch (entity) {
         case '>': {
+            // Clean up Null Entities memory
+            delete startingEntity;
             // Create two guns and two flamethrowers on the map
             if (gunCount < 2) {
                 startingEntity = new Gun(3, "gun", 2);
@@ -108,9 +110,13 @@ Room *GameController::buildRoom(char entity) {
             }
             break;
         } case '!': {
+            // Clean up Null Entities memory
+            delete startingEntity;
             startingEntity = new Survivor();
             break;
         } case '@': {
+            // Clean up Null Entities memory
+            delete startingEntity;
             // Create two exposed wire hazards and two low oxygen hazards
             if (exposedWiresCount < 2) {
                 startingEntity = new ExposedWires("exposed wires", 5);
@@ -121,6 +127,8 @@ Room *GameController::buildRoom(char entity) {
             }
             break;
         } case '?': {
+            // Clean up Null Entities memory
+            delete startingEntity;
             // Create one ammo and one medkit
             if (ammoCount < 1) {
                 startingEntity = new Ammo(3, "ammo");
@@ -131,6 +139,8 @@ Room *GameController::buildRoom(char entity) {
             }
             break;
         } case '#': {
+            // Clean up Null Entities memory
+            delete startingEntity;
             startingEntity = new Alien();
             break;
         } default:
@@ -155,16 +165,16 @@ Room *GameController::buildRoom(char entity) {
 // Print contents functions
 
 void GameController::printRoomHints(const Room *room) {
-    if (room->getLeft() != nullptr && room->getLeft()->getEntity() != nullptr) {
+    if (room->getLeft() != nullptr) {
         room->getLeft()->getEntity()->hint();
     }
-    if (room->getRight() != nullptr && room->getRight()->getEntity() != nullptr) {
+    if (room->getRight() != nullptr) {
         room->getRight()->getEntity()->hint();
     }
-    if (room->getUp() != nullptr && room->getUp()->getEntity() != nullptr ) {
+    if (room->getUp() != nullptr) {
         room->getUp()->getEntity()->hint();
     }
-    if (room->getDown() != nullptr && room->getDown()->getEntity() != nullptr) {
+    if (room->getDown() != nullptr) {
         room->getDown()->getEntity()->hint();
     }
 }
@@ -315,6 +325,9 @@ void GameController::start(const std::vector<std::vector<char>>& mapBuilder) {
             default: break;
         }
     }
+
+    // Delete the map once the game ends
+    deconstructMap();
 }
 
 bool GameController::checkGameOver(const Person* p) {
@@ -323,3 +336,13 @@ bool GameController::checkGameOver(const Person* p) {
     }
     return false;
 }
+
+void GameController::deconstructMap() {
+    for (auto& row : currMap) {
+        for (auto& element : row) {
+            delete element;
+            element = nullptr;
+        }
+    }
+}
+

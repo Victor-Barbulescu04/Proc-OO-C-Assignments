@@ -1,6 +1,6 @@
-//
-// Created by vicb2 on 11/14/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 #include "Person.h"
 
@@ -30,6 +30,9 @@ int Person::getHealth() const {
 
 void Person::changeHealth(int amount) {
     health += amount;
+    if (health < 0) {
+        health = 0;
+    }
 }
 
 // -------------------------------------------------------- //
@@ -42,6 +45,15 @@ void Person::setWeapon(Weapon *w) {
 
 Weapon *Person::getWeapon() const {
     return weapon;
+}
+void Person::replaceWeapon(Weapon* weapon) {
+    if (this->weapon != nullptr) {
+        std::cout << "Replacing existing weapon: " << this->weapon->getName() << std::endl;
+        delete this->weapon;
+    }
+    std::cout << "New weapon equipped: " << weapon->getName() << std::endl;
+    this->weapon = weapon;
+
 }
 
 // -------------------------------------------------------- //
@@ -57,7 +69,7 @@ void Person::setRoom(Room *r) {
 // -------------------------------------------------------- //
 // Character function
 
-char Person::character() const {
+char Person::character() {
     return '+';
 }
 

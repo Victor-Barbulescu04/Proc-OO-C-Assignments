@@ -1,6 +1,6 @@
-//
-// Created by vicb2 on 11/14/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 /* Entity Class
  * Pure virtual class that provides an interface for what
@@ -36,6 +36,21 @@ public:
      * @return the character representing the type of entity it is
      */
     virtual char character() = 0;
+};
+
+/**
+ * Null Entity Class represents a room without an entity in it.
+ * Employs the Null Object Pattern to reduce null checks and simplify
+ * readability in logic pertaining the Entity class.
+ */
+class NullEntity final : public Entity {
+public:
+    NullEntity();
+    ~NullEntity() override ;
+
+    void interact(Person *p) override;
+    void hint() override;
+    char character() override;
 };
 
 #endif //ENTITY_H

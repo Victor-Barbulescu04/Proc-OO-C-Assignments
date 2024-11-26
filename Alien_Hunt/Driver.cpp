@@ -1,6 +1,6 @@
-//
-// Created by vicb2 on 11/16/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 #include "GameController.h"
 

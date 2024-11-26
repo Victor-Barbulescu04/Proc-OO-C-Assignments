@@ -1,2 +1,3 @@
-This repo contains all of my homework and projects from my CSC 2210 Procedural and Object Oriented C++ course.
-We don't exactly have labs in this course, so for the bigger projects take a look at any folder that starts with SPA.
+This repo contains course work and major projects from my CSC 2210 Procedural and Object Oriented C++ course. The objective of this course is to introduce principles of writing and developing software in C and C++, with a focus on object-oriented design, memory management, and effective use of built-in data structures.
+
+This course isn't built around weekly labs, instead opting to assign occasional projects to work on that practice some skill in C++. Look for the folders that start with SPA to see some of these. The Alien Hunt project is also a great project that highlights OO principles and design patterns implemented in C++ on a slightly larger scale.

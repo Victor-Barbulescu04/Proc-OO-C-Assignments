@@ -1,6 +1,6 @@
-//
-// Created by vicb2 on 11/15/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 /* GameController class
  * A class that controls the back-end of the game
@@ -48,11 +48,13 @@ private:
     std::vector<std::vector<Room*>> buildMap(const std::vector<std::vector<char>>& map);
     Room* buildRoom(char entity);
     static void printRoomHints(const Room* room);
-    static void printGameDescription() ;
+    static void printGameDescription();
     void printCurrMap() const;
-    static bool checkGameOver(const Person* p) ;
+    static bool checkGameOver(const Person* p);
 
-    [[nodiscard]] static char printControlPrompt() ;
+    [[nodiscard]] static char printControlPrompt();
+
+    void deconstructMap();
 public:
     GameController();
     ~GameController();

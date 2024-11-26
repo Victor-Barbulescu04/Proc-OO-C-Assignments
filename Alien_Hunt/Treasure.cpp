@@ -1,11 +1,12 @@
-//
-// Created by vicb2 on 11/14/2024.
-//
+// Authors: Victor Barbulescu & Vamsi Sudersanam
+// Course : CSC 2210/001
+// Date: 11/17/2024
 
 #include "Treasure.h"
 
 #include <iostream>
 #include <ostream>
+#include <utility>
 
 #include "Person.h"
 #include "Weapon.h"
@@ -17,7 +18,7 @@
 // Constructor/destructor
 Treasure::Treasure(int changeValueBy, std::string name) {
     this->changeValueBy = changeValueBy;
-    this->name = name;
+    this->name = std::move(name);
 }
 Treasure::~Treasure() = default;
 

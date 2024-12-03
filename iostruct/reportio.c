@@ -18,11 +18,11 @@ void flag_large_differentials(const Event events[], int event_count) {
       total -= events[i].milliliters;
     } else {
       total += events[i].milliliters;
+      if (total >= 1000) {
+        printf("after consuming %s at %s, intake exceeds output by %d ml\n", events[i].name, events[i].time, total);
+      }
     }
 
-    if (total >= 1000) {
-      printf("After consuming %s at %s, intake exceeds output by %d ml", events[i].name, events[i].time, total);
-    }
 
   }
   printf("the final fluid differential is %d ml\n", total);

@@ -19,7 +19,7 @@ int main() {
     // Check if the mantissa is a half or less by checking the 22nd digit.
     // Also check if any of the following bits are 1.
     // 23rd digit is implicitly 1, so it's not important.
-    bool is_half_or_less = (mantissa & 0x00400000) && ((mantissa & 0x003FFFFF) == 0);
+    bool is_half_or_less = (mantissa & 0x00400000);// && ((mantissa & 0x003FFFFF) == 0);
 
     // Print the appropriate message
     if (is_half_or_less) {

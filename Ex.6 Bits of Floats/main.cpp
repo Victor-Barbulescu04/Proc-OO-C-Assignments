@@ -14,8 +14,8 @@ int main() {
     cout << hex << hexValue << dec << endl;
 
     // Extract the mantissa (lower 23 bits) using a bitmask
-    // 0x7FFFFF is actually a 24 bit binary, with the leading bit being 0.
-    // This leading bit will be ignored in further calculations
+    // 0x007FFFFF is a 32 bit binary with the lower 23 bits
+    // set so they can extract the values that make up the mantissa
     uint32_t mantissa = hexValue & 0x007FFFFF;
 
     // If bit 23 is set and any subsequent bits are set, the mantissa is greater than a half.

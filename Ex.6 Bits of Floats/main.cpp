@@ -14,18 +14,16 @@ int main() {
     cout << hex << hexValue << dec << endl;
 
     // Extract the mantissa (lower 23 bits) using a bitmask
+    // 0x7FFFFF is actually a 24 bit binary, with the leading bit being 0.
+    // This leading bit will be ignored in further calculations
     uint32_t mantissa = hexValue & 0x007FFFFF;
 
-    // Check if the mantissa is a half or less by checking the 22nd digit.
-    // Also check if any of the following bits are 1.
-    // 23rd digit is implicitly 1, so it's not important.
-    bool is_half_or_less = (mantissa & 0x00400000) == 0;
-
-    // Print the appropriate message
-    if (is_half_or_less) {
-        std::cout << "mantissa is a half or less\n";
+    // If bit 23 is set and any subsequent bits are set, the mantissa is greater than a half.
+    // Otherwise, the mantissa is half or less
+    if ((mantissa & 0x00400000) != 0 && (mantissa & 0x003FFFFF) != 0) {
+        cout << "mantissa is greater than a half\n";
     } else {
-        std::cout << "mantissa is greater than a half\n";
+        cout << "mantissa is a half or less\n";
     }
 
     return 0;
